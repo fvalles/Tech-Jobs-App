@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import CompaniesList from './src/components/CompaniesList'
+import CompaniesList from './src/components/CompaniesList';
 
 const client = new ApolloClient({
   uri: 'https://api.graphql.jobs/',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 export default function App() {
@@ -19,6 +19,6 @@ export default function App() {
 }
 
 const MainContainer = styled.SafeAreaView`
-  background-color: #FFF;
+  background-color: #fff;
   flex: 1;
-`
+`;
