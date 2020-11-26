@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
 import CompanyLogo from './CompanyLogo';
-import CompanyContainer from './CompanyContainer';
 import CustomText from './CustomText';
+import FlexContainer from './FlexContainer';
 
 const COMPANIES_DATA = gql`
   query CompaniesData {
@@ -23,26 +23,27 @@ const COMPANIES_DATA = gql`
 export default function CompaniesList({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);
 
+  if (loading) return <Text>Loading Companies...</Text>;
+  if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
+
   const renderItem = ({ item }) => {
     return (
-      <CompanyContainer
+      <FlexContainer
         onPress={() => {
           navigation.navigate('Details', {
             companyName: item.name,
           });
         }}
+        companyContainer
       >
         <CompanyLogo imageUrl={item.logoUrl} />
         <CompanyInfoContainer>
-          <CustomText>{item.name}</CustomText>
+          <CustomText companyName>{item.name}</CustomText>
           <CompanyWebsite>{item.websiteUrl}</CompanyWebsite>
         </CompanyInfoContainer>
-      </CompanyContainer>
+      </FlexContainer>
     );
   };
-
-  if (loading) return <Text>Loading Companies...</Text>;
-  if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
 
   return (
     data && (

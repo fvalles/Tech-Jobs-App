@@ -18,8 +18,19 @@ export default function App() {
     <ApolloProvider client={client}>
       <MainContainer>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={CompaniesList} />
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#D5D8D5',
+              },
+            }}
+          >
+            <Stack.Screen
+              name="Home"
+              component={CompaniesList}
+              options={() => ({ title: 'Companies' })}
+            />
             <Stack.Screen
               name="Details"
               component={SelectedCompanyJobs}
@@ -33,6 +44,6 @@ export default function App() {
 }
 
 const MainContainer = styled.SafeAreaView`
-  background-color: #fff;
+  background-color: #d5d8d5;
   flex: 1;
 `;
