@@ -2,6 +2,7 @@
 /* eslint-disable no-alert */
 import React from 'react';
 import { FlatList, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
 import CompanyLogo from './CompanyLogo';
@@ -19,14 +20,16 @@ const COMPANIES_DATA = gql`
   }
 `;
 
-export default function CompaniesList() {
+export default function CompaniesList({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);
 
   const renderItem = ({ item }) => {
     return (
       <CompanyContainer
         onPress={() => {
-          alert(`Company clicked: ${item.name}`);
+          navigation.navigate('Details', {
+            companyName: item.name,
+          });
         }}
       >
         <CompanyLogo imageUrl={item.logoUrl} />
@@ -38,8 +41,8 @@ export default function CompaniesList() {
     );
   };
 
-  if (loading) return <Text>Loading...</Text>;
-  if (error) return <Text>Error Loading Companies Data :(</Text>;
+  if (loading) return <Text>Loading Companies...</Text>;
+  if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
 
   return (
     data && (
@@ -55,3 +58,9 @@ const CompanyInfoContainer = styled.View`
 const CompanyWebsite = styled.Text`
   color: blue;
 `;
+
+CompaniesList.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

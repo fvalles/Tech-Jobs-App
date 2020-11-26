@@ -13,5 +13,5 @@ const StyledText = styled.Text`
 `;
 
 CustomText.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 };

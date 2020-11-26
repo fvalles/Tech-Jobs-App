@@ -8,6 +8,7 @@ export default function CompanyContainer({ onPress, children }) {
 
 const RowContainer = styled.TouchableOpacity`
   align-items: center;
+  background-color: #f0efef;
   flex-direction: row;
   height: 100px;
   padding-left: 30px;
