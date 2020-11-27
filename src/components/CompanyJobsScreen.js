@@ -31,7 +31,7 @@ const COMPANIES_JOBS = gql`
   }
 `;
 
-export default function CompanyJobsScreen({ route }) {
+export default function CompanyJobsScreen({ route, navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_JOBS);
   const { companyName } = route.params;
   let companyJobsData = null;
@@ -79,14 +79,24 @@ export default function CompanyJobsScreen({ route }) {
     );
   };
 
-  return (
-    companyJobsData && (
-      <FlatList data={companyJobsData} renderItem={renderItem} keyExtractor={(item) => item.id} />
-    )
+  return companyJobsData.length ? (
+    <FlatList data={companyJobsData} renderItem={renderItem} keyExtractor={(item) => item.id} />
+  ) : (
+    <StyledView viewType="noJobsView">
+      <StyledText textType="noJobsMsg">
+        {companyName} has no currently vacancies available
+      </StyledText>
+      <StyledTouchableOpacity touchableType="descriptionBtn" onPress={() => navigation.goBack()}>
+        <StyledText textType="descBtn">Go Back</StyledText>
+      </StyledTouchableOpacity>
+    </StyledView>
   );
 }
 
 CompanyJobsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
   route: PropTypes.shape({
     params: PropTypes.shape({
       companyName: PropTypes.string.isRequired,

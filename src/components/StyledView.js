@@ -52,4 +52,14 @@ ${({ viewType }) => {
       `;
     }
   }}
+
+${({ viewType }) => {
+    if (viewType === 'noJobsView') {
+      return css`
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+      `;
+    }
+  }}
 `;

@@ -45,6 +45,14 @@ ${({ textType }) => {
   }}
 
 ${({ textType }) => {
+    if (textType === 'noJobsMsg') {
+      return css`
+        margin-bottom: 15px;
+      `;
+    }
+  }}
+
+${({ textType }) => {
     if (textType === 'remote') {
       return css`
         font-style: italic;
