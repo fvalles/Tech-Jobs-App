@@ -35,10 +35,18 @@ ${({ viewType }) => {
       return css`
         border-bottom-color: #c1c2bd;
         border-bottom-width: 1px;
-        height: 170px;
+        height: 190px;
         flex-direction: column;
         justify-content: center;
         padding-left: 30px;
+      `;
+    }
+  }}
+
+${({ viewType }) => {
+    if (viewType === 'jobDesc') {
+      return css`
+        padding: 5px 15px;
       `;
     }
   }}

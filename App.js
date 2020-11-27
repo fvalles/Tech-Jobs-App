@@ -40,7 +40,7 @@ export default function App() {
             <Stack.Screen
               name="JobDescription"
               component={JobDescriptionScreen}
-              options={({ route }) => ({ title: route.params.jobTitle })}
+              options={() => ({ title: 'Job Description' })}
             />
           </Stack.Navigator>
         </NavigationContainer>

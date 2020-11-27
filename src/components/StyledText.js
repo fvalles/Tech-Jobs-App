@@ -39,7 +39,7 @@ ${({ textType }) => {
       return css`
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin: 0 30px 10px 0;
       `;
     }
   }}

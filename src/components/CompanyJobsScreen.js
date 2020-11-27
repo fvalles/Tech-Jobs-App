@@ -71,7 +71,14 @@ export default function CompanyJobsScreen({ route, navigation }) {
           <StyledText>{commitment}</StyledText>
         </StyledView>
         <StyledView viewType="flexCenterRow">
-          <StyledTouchableOpacity touchableType="descriptionBtn">
+          <StyledTouchableOpacity
+            touchableType="descriptionBtn"
+            onPress={() => {
+              navigation.navigate('JobDescription', {
+                jobDesc: item.description,
+              });
+            }}
+          >
             <StyledText textType="descBtn">View Job</StyledText>
           </StyledTouchableOpacity>
         </StyledView>
@@ -96,6 +103,7 @@ export default function CompanyJobsScreen({ route, navigation }) {
 CompanyJobsScreen.propTypes = {
   navigation: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
+    navigate: PropTypes.func.isRequired,
   }).isRequired,
   route: PropTypes.shape({
     params: PropTypes.shape({
