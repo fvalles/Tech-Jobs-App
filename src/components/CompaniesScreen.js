@@ -18,7 +18,7 @@ const COMPANIES_DATA = gql`
   }
 `;
 
-export default function CompaniesList({ navigation }) {
+export default function CompaniesScreen({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);
 
   if (loading) return <Text>Loading Companies...</Text>;
@@ -28,7 +28,7 @@ export default function CompaniesList({ navigation }) {
     return (
       <StyledTouchableOpacity
         onPress={() => {
-          navigation.navigate('Details', {
+          navigation.navigate('CompanyJobs', {
             companyName: item.name,
           });
         }}
@@ -50,7 +50,7 @@ export default function CompaniesList({ navigation }) {
   );
 }
 
-CompaniesList.propTypes = {
+CompaniesScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

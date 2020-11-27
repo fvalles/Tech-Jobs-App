@@ -4,20 +4,20 @@ import styled, { css } from 'styled-components';
 
 export const StyledView = styled.View`
   ${({ viewType }) => {
-    if (viewType === 'locationsRow') {
+    if (viewType === 'commitmentRow') {
       return css`
         align-items: center;
         flex-direction: row;
-        margin-bottom: 5px;
       `;
     }
   }}
 
   ${({ viewType }) => {
-    if (viewType === 'commitmentRow') {
+    if (viewType === 'flexCenterRow') {
       return css`
         align-items: center;
         flex-direction: row;
+        justify-content: center;
       `;
     }
   }}
@@ -35,10 +35,20 @@ ${({ viewType }) => {
       return css`
         border-bottom-color: #c1c2bd;
         border-bottom-width: 1px;
-        height: 130px;
+        height: 170px;
         flex-direction: column;
         justify-content: center;
         padding-left: 30px;
+      `;
+    }
+  }}
+
+${({ viewType }) => {
+    if (viewType === 'locationsRow') {
+      return css`
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: 5px;
       `;
     }
   }}

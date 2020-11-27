@@ -25,9 +25,11 @@ export const StyledText = styled.Text`
   }}
 
 ${({ textType }) => {
-    if (textType === 'remote') {
+    if (textType === 'descBtn') {
       return css`
-        font-style: italic;
+        color: white;
+        font-weight: bold;
+        text-align: center;
       `;
     }
   }}
@@ -38,6 +40,14 @@ ${({ textType }) => {
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
+      `;
+    }
+  }}
+
+${({ textType }) => {
+    if (textType === 'remote') {
+      return css`
+        font-style: italic;
       `;
     }
   }}

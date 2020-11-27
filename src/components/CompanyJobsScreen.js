@@ -5,6 +5,7 @@ import { useQuery, gql } from '@apollo/client';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
 import { StyledImage } from './StyledImage';
+import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import locationIcon from '../assets/location-icon.png';
 import clockIcon from '../assets/clock-icon.png';
 
@@ -30,7 +31,7 @@ const COMPANIES_JOBS = gql`
   }
 `;
 
-export default function SelectedCompanyJobs({ route }) {
+export default function CompanyJobsScreen({ route }) {
   const { loading, error, data } = useQuery(COMPANIES_JOBS);
   const { companyName } = route.params;
   let companyJobsData = null;
@@ -69,6 +70,11 @@ export default function SelectedCompanyJobs({ route }) {
           <StyledImage source={clockIcon} imgType="jobScreenIcon" />
           <StyledText>{commitment}</StyledText>
         </StyledView>
+        <StyledView viewType="flexCenterRow">
+          <StyledTouchableOpacity touchableType="descriptionBtn">
+            <StyledText textType="descBtn">View Job</StyledText>
+          </StyledTouchableOpacity>
+        </StyledView>
       </StyledView>
     );
   };
@@ -80,7 +86,7 @@ export default function SelectedCompanyJobs({ route }) {
   );
 }
 
-SelectedCompanyJobs.propTypes = {
+CompanyJobsScreen.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
       companyName: PropTypes.string.isRequired,

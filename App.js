@@ -2,8 +2,9 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import CompaniesList from './src/components/CompaniesList';
-import SelectedCompanyJobs from './src/components/SelectedCompanyJobs';
+import CompaniesScreen from './src/components/CompaniesScreen';
+import CompanyJobsScreen from './src/components/CompanyJobsScreen';
+import JobDescriptionScreen from './src/components/JobDescriptionScreen';
 import { StyledSafeAreaView } from './src/components/StyledSafeAreaView';
 
 const client = new ApolloClient({
@@ -28,13 +29,18 @@ export default function App() {
           >
             <Stack.Screen
               name="Home"
-              component={CompaniesList}
+              component={CompaniesScreen}
               options={() => ({ title: 'Companies' })}
             />
             <Stack.Screen
-              name="Details"
-              component={SelectedCompanyJobs}
+              name="CompanyJobs"
+              component={CompanyJobsScreen}
               options={({ route }) => ({ title: `${route.params.companyName}'s Jobs` })}
+            />
+            <Stack.Screen
+              name="JobDescription"
+              component={JobDescriptionScreen}
+              options={({ route }) => ({ title: route.params.jobTitle })}
             />
           </Stack.Navigator>
         </NavigationContainer>
