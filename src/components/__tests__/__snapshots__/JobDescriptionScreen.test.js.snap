@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobDescriptionScreen /> renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 5,
+          },
+        ]
+      }
+      viewType="jobDesc"
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "flex-start",
+              "marginBottom": 10,
+              "marginTop": 10,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+          >
+            <Text
+              style={
+                Array [
+                  Object {},
+                  Object {},
+                ]
+              }
+            >
+              Mock Job Description
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
