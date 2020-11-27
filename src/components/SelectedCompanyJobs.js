@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
+import { StyledImage } from './StyledImage';
+import locationIcon from '../assets/location-icon.png';
+import clockIcon from '../assets/clock-icon.png';
 
 const COMPANIES_JOBS = gql`
   query CompaniesJobs {
@@ -49,7 +52,7 @@ export default function SelectedCompanyJobs({ route }) {
     }, '');
 
     const remote = item.remotes.reduce((acc, val) => {
-      return cities.length !== 0 ? `${acc} / ${val.name}` : `${acc} ${val.name}`;
+      return cities.length !== 0 ? `${acc} / ${val.name}` : `${acc}${val.name}`;
     }, '');
 
     const commitment = item.commitment.title;
@@ -57,21 +60,20 @@ export default function SelectedCompanyJobs({ route }) {
     return (
       <StyledView viewType="job">
         <StyledText textType="jobTitle">{item.title}</StyledText>
-        <StyledView viewType="locations">
+        <StyledView viewType="locationsRow">
+          <StyledImage source={locationIcon} imgType="jobScreenIcon" />
           <StyledText>{cities}</StyledText>
           <StyledText textType="remote">{remote}</StyledText>
         </StyledView>
-        <StyledText>{commitment}</StyledText>
+        <StyledView viewType="commitmentRow">
+          <StyledImage source={clockIcon} imgType="jobScreenIcon" />
+          <StyledText>{commitment}</StyledText>
+        </StyledView>
       </StyledView>
     );
   };
 
   return (
-    /* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen of the company: {companyName}</Text>
-      <Text>{JSON.stringify(companyInfo[0].jobs[0].title)}</Text>
-    </View> */
-
     companyJobsData && (
       <FlatList data={companyJobsData} renderItem={renderItem} keyExtractor={(item) => item.id} />
     )

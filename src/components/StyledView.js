@@ -4,10 +4,20 @@ import styled, { css } from 'styled-components';
 
 export const StyledView = styled.View`
   ${({ viewType }) => {
-    if (viewType === 'locations') {
+    if (viewType === 'locationsRow') {
       return css`
+        align-items: center;
         flex-direction: row;
         margin-bottom: 5px;
+      `;
+    }
+  }}
+
+  ${({ viewType }) => {
+    if (viewType === 'commitmentRow') {
+      return css`
+        align-items: center;
+        flex-direction: row;
       `;
     }
   }}
@@ -25,7 +35,7 @@ ${({ viewType }) => {
       return css`
         border-bottom-color: #c1c2bd;
         border-bottom-width: 1px;
-        height: 100px;
+        height: 130px;
         flex-direction: column;
         justify-content: center;
         padding-left: 30px;
