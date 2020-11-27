@@ -16,20 +16,28 @@ export const StyledText = styled.Text`
   }}
 
   ${({ textType }) => {
-    if (textType === 'jobTitle') {
+    if (textType === 'companyWebsite') {
       return css`
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
+        color: blue;
+        font-size: 14px;
       `;
     }
   }}
 
 ${({ textType }) => {
-    if (textType === 'companyWebsite') {
+    if (textType === 'remote') {
       return css`
-        color: blue;
-        font-size: 14px;
+        font-style: italic;
+      `;
+    }
+  }}
+
+${({ textType }) => {
+    if (textType === 'jobTitle') {
+      return css`
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
       `;
     }
   }}

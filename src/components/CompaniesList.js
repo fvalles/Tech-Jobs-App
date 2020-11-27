@@ -2,10 +2,10 @@ import React from 'react';
 import { FlatList, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
-import styled from 'styled-components';
 import CompanyLogo from './CompanyLogo';
 import { StyledText } from './StyledText';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
+import { StyledView } from './StyledView';
 
 const COMPANIES_DATA = gql`
   query CompaniesData {
@@ -32,13 +32,13 @@ export default function CompaniesList({ navigation }) {
             companyName: item.name,
           });
         }}
-        containerType="company"
+        touchableType="company"
       >
         <CompanyLogo imageUrl={item.logoUrl} />
-        <CompanyInfoContainer>
+        <StyledView viewType="flexCol">
           <StyledText textType="companyName">{item.name}</StyledText>
           <StyledText textType="companyWebsite">{item.websiteUrl}</StyledText>
-        </CompanyInfoContainer>
+        </StyledView>
       </StyledTouchableOpacity>
     );
   };
@@ -49,10 +49,6 @@ export default function CompaniesList({ navigation }) {
     )
   );
 }
-
-const CompanyInfoContainer = styled.View`
-  width: 100%;
-`;
 
 CompaniesList.propTypes = {
   navigation: PropTypes.shape({

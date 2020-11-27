@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CompaniesList from './src/components/CompaniesList';
 import SelectedCompanyJobs from './src/components/SelectedCompanyJobs';
+import { StyledSafeAreaView } from './src/components/StyledSafeAreaView';
 
 const client = new ApolloClient({
   uri: 'https://api.graphql.jobs/',
@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <MainContainer>
+      <StyledSafeAreaView>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="Home"
@@ -38,12 +38,7 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </MainContainer>
+      </StyledSafeAreaView>
     </ApolloProvider>
   );
 }
-
-const MainContainer = styled.SafeAreaView`
-  background-color: #d5d8d5;
-  flex: 1;
-`;

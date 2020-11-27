@@ -3,24 +3,25 @@ import { Text, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import { StyledText } from './StyledText';
-import { StyledTouchableOpacity } from './StyledTouchableOpacity';
+import { StyledView } from './StyledView';
 
 const COMPANIES_JOBS = gql`
   query CompaniesJobs {
     companies {
       name
       jobs {
-        id
-        title
         cities {
           name
         }
         commitment {
           title
         }
+        description
+        id
         remotes {
           name
         }
+        title
       }
     }
   }
@@ -43,15 +44,25 @@ export default function SelectedCompanyJobs({ route }) {
   }
 
   const renderItem = ({ item }) => {
-    const cities = item.cities.reduce((acc, val) => {
-      return acc + val.name;
+    const cities = item.cities.reduce((acc, val, idx) => {
+      return idx === 0 ? `${val.name}` : `${acc}, ${val.name}`;
     }, '');
 
+    const remote = item.remotes.reduce((acc, val) => {
+      return cities.length !== 0 ? `${acc} / ${val.name}` : `${acc} ${val.name}`;
+    }, '');
+
+    const commitment = item.commitment.title;
+
     return (
-      <StyledTouchableOpacity containerType="job">
+      <StyledView viewType="job">
         <StyledText textType="jobTitle">{item.title}</StyledText>
-        <StyledText>{cities}</StyledText>
-      </StyledTouchableOpacity>
+        <StyledView viewType="locations">
+          <StyledText>{cities}</StyledText>
+          <StyledText textType="remote">{remote}</StyledText>
+        </StyledView>
+        <StyledText>{commitment}</StyledText>
+      </StyledView>
     );
   };
 
