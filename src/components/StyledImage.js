@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable consistent-return */
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/native';
 
 export const StyledImage = styled.Image`
   ${({ imgType }) => {
