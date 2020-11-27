@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-alert */
 import React from 'react';
 import { FlatList, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
 import CompanyLogo from './CompanyLogo';
-import CustomText from './CustomText';
-import FlexContainer from './FlexContainer';
+import { StyledText } from './StyledText';
+import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 
 const COMPANIES_DATA = gql`
   query CompaniesData {
@@ -28,20 +26,20 @@ export default function CompaniesList({ navigation }) {
 
   const renderItem = ({ item }) => {
     return (
-      <FlexContainer
+      <StyledTouchableOpacity
         onPress={() => {
           navigation.navigate('Details', {
             companyName: item.name,
           });
         }}
-        companyContainer
+        containerType="company"
       >
         <CompanyLogo imageUrl={item.logoUrl} />
         <CompanyInfoContainer>
-          <CustomText companyName>{item.name}</CustomText>
-          <CompanyWebsite>{item.websiteUrl}</CompanyWebsite>
+          <StyledText textType="companyName">{item.name}</StyledText>
+          <StyledText textType="companyWebsite">{item.websiteUrl}</StyledText>
         </CompanyInfoContainer>
-      </FlexContainer>
+      </StyledTouchableOpacity>
     );
   };
 
@@ -54,10 +52,6 @@ export default function CompaniesList({ navigation }) {
 
 const CompanyInfoContainer = styled.View`
   width: 100%;
-`;
-
-const CompanyWebsite = styled.Text`
-  color: blue;
 `;
 
 CompaniesList.propTypes = {

@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
-import CustomText from './CustomText';
-import FlexContainer from './FlexContainer';
+import { StyledText } from './StyledText';
+import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 
 const COMPANIES_JOBS = gql`
   query CompaniesJobs {
@@ -43,10 +43,15 @@ export default function SelectedCompanyJobs({ route }) {
   }
 
   const renderItem = ({ item }) => {
+    const cities = item.cities.reduce((acc, val) => {
+      return acc + val.name;
+    }, '');
+
     return (
-      <FlexContainer companyJobs>
-        <CustomText jobTitle>{item.title}</CustomText>
-      </FlexContainer>
+      <StyledTouchableOpacity containerType="job">
+        <StyledText textType="jobTitle">{item.title}</StyledText>
+        <StyledText>{cities}</StyledText>
+      </StyledTouchableOpacity>
     );
   };
 
