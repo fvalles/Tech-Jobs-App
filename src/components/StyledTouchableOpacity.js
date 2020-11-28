@@ -23,6 +23,7 @@ export const StyledTouchableOpacity = styled.TouchableOpacity`
         background-color: #32e0c4;
         border-radius: 35px;
         margin-top: 5px;
+        margin-bottom: 5px;
         padding: 15px;
         width: 140px;
       `;

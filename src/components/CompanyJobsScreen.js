@@ -78,7 +78,10 @@ export default function CompanyJobsScreen({ route, navigation }) {
             touchableType="descriptionBtn"
             onPress={() => {
               navigation.navigate('JobDescription', {
+                companyName,
                 jobDesc: item.description,
+                jobId: item.id,
+                jobTitle: item.title,
               });
             }}
           >

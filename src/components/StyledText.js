@@ -6,6 +6,14 @@ export const StyledText = styled.Text`
   font-size: 16px;
 
   ${({ textType }) => {
+    if (textType === 'bold') {
+      return css`
+        font-weight: bold;
+      `;
+    }
+  }}
+
+  ${({ textType }) => {
     if (textType === 'companyName') {
       return css`
         color: #212121;
