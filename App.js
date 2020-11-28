@@ -2,7 +2,7 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import CompaniesScreen from './src/components/CompaniesScreen';
+import HomeTabs from './src/components/HomeTabs';
 import CompanyJobsScreen from './src/components/CompanyJobsScreen';
 import JobDescriptionScreen from './src/components/JobDescriptionScreen';
 import { StyledSafeAreaView } from './src/components/StyledSafeAreaView';
@@ -35,7 +35,7 @@ export default function App() {
           >
             <Stack.Screen
               name="Home"
-              component={CompaniesScreen}
+              component={HomeTabs}
               options={() => ({ title: 'Ank Challenge' })}
             />
             <Stack.Screen
