@@ -8,6 +8,7 @@ export const StyledText = styled.Text`
   ${({ textType }) => {
     if (textType === 'companyName') {
       return css`
+        color: #212121;
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 5px;
@@ -27,7 +28,7 @@ export const StyledText = styled.Text`
 ${({ textType }) => {
     if (textType === 'descBtn') {
       return css`
-        color: white;
+        color: #212121;
         font-weight: bold;
         text-align: center;
       `;
@@ -37,9 +38,21 @@ ${({ textType }) => {
 ${({ textType }) => {
     if (textType === 'jobTitle') {
       return css`
+        color: #212121;
         font-size: 18px;
         font-weight: bold;
         margin: 0 30px 10px 0;
+      `;
+    }
+  }}
+
+${({ textType }) => {
+    if (textType === 'mainTitle') {
+      return css`
+        color: #fff;
+        font-weight: bold;
+        font-size: 22px;
+        margin-left: 30px;
       `;
     }
   }}

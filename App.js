@@ -22,16 +22,21 @@ export default function App() {
           <Stack.Navigator
             initialRouteName="Home"
             screenOptions={{
-              headerStyle: {
-                backgroundColor: '#D5D8D5',
-              },
               cardStyle: { backgroundColor: '#fff' },
+              headerBackTitleVisible: false,
+              headerStyle: {
+                backgroundColor: '#212121',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
             }}
           >
             <Stack.Screen
               name="Home"
               component={CompaniesScreen}
-              options={() => ({ title: 'Companies' })}
+              options={() => ({ title: 'Ank Challenge' })}
             />
             <Stack.Screen
               name="CompanyJobs"

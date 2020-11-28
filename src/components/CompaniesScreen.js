@@ -46,7 +46,12 @@ export default function CompaniesScreen({ navigation }) {
 
   return (
     data && (
-      <FlatList data={data.companies} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      <>
+        <StyledView viewType="homeScreenTitle">
+          <StyledText textType="mainTitle">Companies</StyledText>
+        </StyledView>
+        <FlatList data={data.companies} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      </>
     )
   );
 }

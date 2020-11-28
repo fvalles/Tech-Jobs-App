@@ -16,7 +16,6 @@ export const StyledView = styled.View`
   ${({ viewType }) => {
     if (viewType === 'flexCenterRow') {
       return css`
-        align-items: center;
         flex-direction: row;
         justify-content: center;
       `;
@@ -32,6 +31,17 @@ export const StyledView = styled.View`
   }}
 
 ${({ viewType }) => {
+    if (viewType === 'homeScreenTitle') {
+      return css`
+        background-color: #0d7377;
+        height: 60px;
+        flex-direction: row;
+        align-items: center;
+      `;
+    }
+  }}
+
+${({ viewType }) => {
     if (viewType === 'job') {
       return css`
         border-bottom-color: #c1c2bd;
@@ -39,7 +49,6 @@ ${({ viewType }) => {
         height: 190px;
         flex-direction: column;
         justify-content: center;
-        padding-left: 30px;
       `;
     }
   }}
@@ -48,6 +57,14 @@ ${({ viewType }) => {
     if (viewType === 'jobDesc') {
       return css`
         padding: 5px 15px;
+      `;
+    }
+  }}
+
+${({ viewType }) => {
+    if (viewType === 'jobInfo') {
+      return css`
+        padding-left: 30px;
       `;
     }
   }}

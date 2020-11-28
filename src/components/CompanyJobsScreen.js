@@ -61,15 +61,17 @@ export default function CompanyJobsScreen({ route, navigation }) {
 
     return (
       <StyledView viewType="job">
-        <StyledText textType="jobTitle">{item.title}</StyledText>
-        <StyledView viewType="locationsRow">
-          <StyledImage source={locationIcon} imgType="jobScreenIcon" />
-          <StyledText>{cities}</StyledText>
-          <StyledText textType="remote">{remote}</StyledText>
-        </StyledView>
-        <StyledView viewType="commitmentRow">
-          <StyledImage source={clockIcon} imgType="jobScreenIcon" />
-          <StyledText>{commitment}</StyledText>
+        <StyledView viewType="jobInfo">
+          <StyledText textType="jobTitle">{item.title}</StyledText>
+          <StyledView viewType="locationsRow">
+            <StyledImage source={locationIcon} imgType="jobScreenIcon" />
+            <StyledText>{cities}</StyledText>
+            <StyledText textType="remote">{remote}</StyledText>
+          </StyledView>
+          <StyledView viewType="commitmentRow">
+            <StyledImage source={clockIcon} imgType="jobScreenIcon" />
+            <StyledText>{commitment}</StyledText>
+          </StyledView>
         </StyledView>
         <StyledView viewType="flexCenterRow">
           <StyledTouchableOpacity
