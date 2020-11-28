@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
+import Animation from './Animation';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
 import { StyledImage } from './StyledImage';
@@ -36,7 +37,7 @@ export default function CompanyJobsScreen({ route, navigation }) {
   const { companyName } = route.params;
   let companyJobsData = null;
 
-  if (loading) return <Text>Loading Company&apos;s jobs...</Text>;
+  if (loading) return <Animation animationType="lookingForJobs" />;
   if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
 
   if (data) {

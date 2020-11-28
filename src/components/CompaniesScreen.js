@@ -3,6 +3,7 @@ import { FlatList, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery, gql } from '@apollo/client';
 import CompanyLogo from './CompanyLogo';
+import Animation from './Animation';
 import { StyledText } from './StyledText';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import { StyledView } from './StyledView';
@@ -21,7 +22,7 @@ const COMPANIES_DATA = gql`
 export default function CompaniesScreen({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);
 
-  if (loading) return <Text>Loading Companies...</Text>;
+  if (loading) return <Animation animationType="loader" />;
   if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
 
   const renderItem = ({ item }) => {
