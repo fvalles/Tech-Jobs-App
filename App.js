@@ -25,6 +25,7 @@ export default function App() {
               headerStyle: {
                 backgroundColor: '#D5D8D5',
               },
+              cardStyle: { backgroundColor: '#fff' },
             }}
           >
             <Stack.Screen

@@ -7,6 +7,7 @@ export const StyledTouchableOpacity = styled.TouchableOpacity`
     if (touchableType === 'company') {
       return css`
         align-items: center;
+        background-color: #fff;
         border-bottom-color: #c1c2bd;
         border-bottom-width: 1px;
         height: 100px;

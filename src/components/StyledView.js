@@ -3,6 +3,7 @@
 import styled, { css } from 'styled-components/native';
 
 export const StyledView = styled.View`
+  background-color: #fff;
   ${({ viewType }) => {
     if (viewType === 'commitmentRow') {
       return css`
