@@ -37,7 +37,7 @@ export default function HomeTabs() {
         name="Saved Jobs"
         component={FavJobsScreen}
         options={{
-          tabBarLabel: 'Companies',
+          tabBarLabel: 'Saved Jobs',
           // eslint-disable-next-line react/prop-types
           tabBarIcon: ({ color, size }) => <AntDesign name="heart" color={color} size={size} />,
         }}
