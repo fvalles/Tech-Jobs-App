@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import isEqual from 'lodash.isequal';
+import { useFocusEffect } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
 import { getAllData } from './AsyncStorageHelper';
 
-export default function JobDescriptionScreen() {
+export default function FavJobsScreen() {
   const [storedData, setStoredData] = useState([]);
 
-  useEffect(() => {
-    getAllData().then((values) => {
-      if (values) {
-        if (storedData.length !== values.length) {
-          setStoredData((prevStoredData) => {
-            return [...values, ...prevStoredData];
-          });
+  useFocusEffect(
+    useCallback(() => {
+      const retrieveStoreData = async () => {
+        const newStoredData = await getAllData();
+        if (!isEqual(storedData, newStoredData)) {
+          setStoredData(newStoredData);
         }
-      }
-    });
-  });
+      };
+      retrieveStoreData();
+    }, [storedData])
+  );
 
   const renderItem = ({ item }) => {
     const jobData = JSON.parse(item[1]);
@@ -25,12 +27,10 @@ export default function JobDescriptionScreen() {
       <>
         <StyledView viewType="favJob">
           <StyledView viewType="jobTitleRow">
-            <StyledText>Job Title: </StyledText>
-            <StyledText textType="bold">{jobData.jobTitle}</StyledText>
+            <StyledText textType="companyJobSaved">{jobData.companyName}</StyledText>
           </StyledView>
           <StyledView viewType="locationsRow">
-            <StyledText>Company: </StyledText>
-            <StyledText textType="bold">{jobData.companyName}</StyledText>
+            <StyledText>{jobData.jobTitle}</StyledText>
           </StyledView>
         </StyledView>
       </>
