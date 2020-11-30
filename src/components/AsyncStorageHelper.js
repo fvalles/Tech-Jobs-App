@@ -8,8 +8,7 @@ const getAllKeys = async () => {
   } catch (e) {
     console.log(e.message);
   }
-
-  console.log(`Stored keys: ${JSON.stringify(keys)}`);
+  // console.log(`\nStored keys: ${JSON.stringify(keys)}\n`);
   return keys;
 };
 
@@ -30,9 +29,18 @@ export const getAllData = async () => {
   const storedKeys = await getAllKeys();
   if (storedKeys.length > 0) {
     storedKeyValues = await getMultiple(storedKeys);
-    console.log(`Stored key-values: ${JSON.stringify(storedKeyValues)}`);
+    // console.log(`Stored key-values: ${JSON.stringify(storedKeyValues)}\n`);
   }
   return storedKeyValues;
+};
+
+export const removeData = async (key) => {
+  try {
+    await AsyncStorage.removeItem(key);
+  } catch (e) {
+    // remove error
+  }
+  console.log('Done.');
 };
 
 export const storeData = async (object) => {
