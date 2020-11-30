@@ -24,8 +24,10 @@ export default function Animation({ animationType }) {
   }, []);
 
   let animationSrc;
+  let backgroundOpacity = 0;
   if (animationType === 'loader') {
     animationSrc = require('../assets/loader.json');
+    backgroundOpacity = 1;
   }
   if (animationType === 'lookingForJobs') {
     animationSrc = require('../assets/looking-for-jobs.json');
@@ -34,7 +36,7 @@ export default function Animation({ animationType }) {
   return (
     <AnimatedLoader
       visible={visible}
-      overlayColor="rgba(255,255,255,0)"
+      overlayColor={`rgba(255,255,255,${backgroundOpacity})`}
       source={animationSrc}
       animationStyle={styles.lottie}
       speed={1}
