@@ -1,15 +1,18 @@
 import React, { useState, useCallback } from 'react';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { useFocusEffect } from '@react-navigation/native';
 import { FlatList } from 'react-native';
+import RightSwipeableActions from './RightSwipeableActions';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
-import { getAllData } from './AsyncStorageHelper';
+import { getAllData, removeData } from './AsyncStorageHelper';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 
 export default function FavJobsScreen({ navigation }) {
   const [storedData, setStoredData] = useState([]);
+  const [removedJob, setRemovedJob] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -20,7 +23,8 @@ export default function FavJobsScreen({ navigation }) {
         }
       };
       retrieveStoreData();
-    }, [storedData])
+      if (removedJob) setRemovedJob(false);
+    }, [removedJob, storedData])
   );
 
   const renderItem = ({ item }) => {
@@ -28,25 +32,38 @@ export default function FavJobsScreen({ navigation }) {
     const jobId = item[0];
     const { companyName, jobTitle, jobDesc } = jobData;
     return (
-      <StyledTouchableOpacity
-        onPress={() => {
-          navigation.navigate('JobDescription', {
-            companyName,
-            jobDesc,
-            jobId,
-            jobTitle,
-          });
-        }}
+      <Swipeable
+        renderRightActions={(progress, dragX) => (
+          <RightSwipeableActions
+            progress={progress}
+            dragX={dragX}
+            onPress={() => {
+              removeData(jobId);
+              setRemovedJob(true);
+            }}
+          />
+        )}
       >
-        <StyledView viewType="favJob">
-          <StyledView viewType="jobTitleRow">
-            <StyledText textType="companyJobSaved">{companyName}</StyledText>
+        <StyledTouchableOpacity
+          onPress={() => {
+            navigation.navigate('JobDescription', {
+              companyName,
+              jobDesc,
+              jobId,
+              jobTitle,
+            });
+          }}
+        >
+          <StyledView viewType="favJob">
+            <StyledView viewType="jobTitleRow">
+              <StyledText textType="companyJobSaved">{companyName}</StyledText>
+            </StyledView>
+            <StyledView viewType="locationsRow">
+              <StyledText>{jobTitle}</StyledText>
+            </StyledView>
           </StyledView>
-          <StyledView viewType="locationsRow">
-            <StyledText>{jobTitle}</StyledText>
-          </StyledView>
-        </StyledView>
-      </StyledTouchableOpacity>
+        </StyledTouchableOpacity>
+      </Swipeable>
     );
   };
 

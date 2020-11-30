@@ -40,7 +40,7 @@ export const removeData = async (key) => {
   } catch (e) {
     // remove error
   }
-  console.log('Done.');
+  // console.log('Done removing item');
 };
 
 export const storeData = async (object) => {

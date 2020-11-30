@@ -122,4 +122,17 @@ ${({ viewType }) => {
       `;
     }
   }}
+
+${({ viewType }) => {
+    if (viewType === 'removeJob') {
+      return css`
+        background-color: #dd2c00;
+        flex: 1;
+        width: 200px;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+      `;
+    }
+  }}
 `;
