@@ -7,7 +7,7 @@ import Markdown from 'react-native-markdown-display';
 import { StyledText } from './StyledText';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import { StyledView } from './StyledView';
-import { storeData } from './AsyncStorageHelper';
+import { storeData } from '../utils/asyncStorageHelper';
 
 export default function JobDescriptionScreen({ route }) {
   const { companyName, jobDesc, jobId, jobTitle } = route.params;

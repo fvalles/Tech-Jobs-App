@@ -7,7 +7,7 @@ import { FlatList } from 'react-native';
 import RightSwipeableActions from './RightSwipeableActions';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
-import { getAllData, removeData } from './AsyncStorageHelper';
+import { getAllData, removeData } from '../utils/asyncStorageHelper';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 
 export default function FavJobsScreen({ navigation }) {

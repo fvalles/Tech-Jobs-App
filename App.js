@@ -6,6 +6,7 @@ import HomeTabs from './src/components/HomeTabs';
 import CompanyJobsScreen from './src/components/CompanyJobsScreen';
 import JobDescriptionScreen from './src/components/JobDescriptionScreen';
 import { StyledSafeAreaView } from './src/components/StyledSafeAreaView';
+import { primaryColor, white } from './src/constants/colors';
 
 const client = new ApolloClient({
   uri: 'https://api.graphql.jobs/',
@@ -22,12 +23,12 @@ export default function App() {
           <Stack.Navigator
             initialRouteName="Home"
             screenOptions={{
-              cardStyle: { backgroundColor: '#fff' },
+              cardStyle: { backgroundColor: white },
               headerBackTitleVisible: false,
               headerStyle: {
-                backgroundColor: '#212121',
+                backgroundColor: primaryColor,
               },
-              headerTintColor: '#fff',
+              headerTintColor: white,
               headerTitleStyle: {
                 fontWeight: 'bold',
               },

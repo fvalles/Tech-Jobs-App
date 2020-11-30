@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Animated } from 'react-native';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import { StyledView } from './StyledView';
+import { white } from '../constants/colors';
 
 export default function RightSwipeableActions({ dragX, onPress }) {
   const scale = dragX.interpolate({
@@ -16,7 +17,7 @@ export default function RightSwipeableActions({ dragX, onPress }) {
         <Animated.Text
           style={[
             {
-              color: '#fff',
+              color: white,
               fontSize: 22,
               fontWeight: '700',
               padding: 10,

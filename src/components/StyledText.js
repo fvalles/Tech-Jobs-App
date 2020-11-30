@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable consistent-return */
 import styled, { css } from 'styled-components/native';
+import { blue, primaryColor, white } from '../constants/colors';
 
 export const StyledText = styled.Text`
   font-size: 16px;
@@ -8,7 +9,7 @@ export const StyledText = styled.Text`
   ${({ textType }) => {
     if (textType === 'companyJobSaved') {
       return css`
-        color: #212121;
+        color: ${primaryColor};
         font-size: 20px;
         font-weight: bold;
       `;
@@ -18,7 +19,7 @@ export const StyledText = styled.Text`
   ${({ textType }) => {
     if (textType === 'companyName') {
       return css`
-        color: #212121;
+        color: ${primaryColor};
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 5px;
@@ -29,7 +30,7 @@ export const StyledText = styled.Text`
   ${({ textType }) => {
     if (textType === 'companyWebsite') {
       return css`
-        color: blue;
+        color: ${blue};
         font-size: 14px;
       `;
     }
@@ -38,7 +39,7 @@ export const StyledText = styled.Text`
 ${({ textType }) => {
     if (textType === 'descBtn') {
       return css`
-        color: #212121;
+        color: ${primaryColor};
         font-weight: bold;
         text-align: center;
       `;
@@ -48,7 +49,7 @@ ${({ textType }) => {
 ${({ textType }) => {
     if (textType === 'jobTitle') {
       return css`
-        color: #212121;
+        color: ${primaryColor};
         font-size: 18px;
         font-weight: bold;
         margin: 0 30px 10px 0;
@@ -59,7 +60,7 @@ ${({ textType }) => {
 ${({ textType }) => {
     if (textType === 'mainTitle') {
       return css`
-        color: #fff;
+        color: ${white};
         font-weight: bold;
         font-size: 22px;
         margin-left: 30px;

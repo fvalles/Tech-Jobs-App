@@ -1,14 +1,15 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable consistent-return */
 import styled, { css } from 'styled-components/native';
+import { grayNickel, tertiaryColor, white } from '../constants/colors';
 
 export const StyledTouchableOpacity = styled.TouchableOpacity`
   ${({ touchableType }) => {
     if (touchableType === 'company') {
       return css`
         align-items: center;
-        background-color: #fff;
-        border-bottom-color: #c1c2bd;
+        background-color: ${white};
+        border-bottom-color: ${grayNickel};
         border-bottom-width: 1px;
         height: 100px;
         flex-direction: row;
@@ -20,7 +21,7 @@ export const StyledTouchableOpacity = styled.TouchableOpacity`
   ${({ touchableType }) => {
     if (touchableType === 'descriptionBtn') {
       return css`
-        background-color: #32e0c4;
+        background-color: ${tertiaryColor};
         border-radius: 35px;
         margin-top: 5px;
         margin-bottom: 5px;

@@ -1,9 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable consistent-return */
 import styled, { css } from 'styled-components/native';
+import { grayNickel, grenadier, secondaryColor, white } from '../constants/colors';
 
 export const StyledView = styled.View`
-  background-color: #fff;
+  background-color: ${white};
   ${({ viewType }) => {
     if (viewType === 'commitmentRow') {
       return css`
@@ -16,7 +17,7 @@ export const StyledView = styled.View`
   ${({ viewType }) => {
     if (viewType === 'favJob') {
       return css`
-        border-bottom-color: #c1c2bd;
+        border-bottom-color: ${grayNickel};
         border-bottom-width: 1px;
         flex-direction: column;
         height: 100px;
@@ -57,7 +58,7 @@ ${({ viewType }) => {
 ${({ viewType }) => {
     if (viewType === 'homeScreenTitle') {
       return css`
-        background-color: #0d7377;
+        background-color: ${secondaryColor};
         height: 60px;
         flex-direction: row;
         align-items: center;
@@ -68,7 +69,7 @@ ${({ viewType }) => {
 ${({ viewType }) => {
     if (viewType === 'job') {
       return css`
-        border-bottom-color: #c1c2bd;
+        border-bottom-color: ${grayNickel};
         border-bottom-width: 1px;
         flex-direction: column;
         height: 190px;
@@ -126,7 +127,7 @@ ${({ viewType }) => {
 ${({ viewType }) => {
     if (viewType === 'removeJob') {
       return css`
-        background-color: #dd2c00;
+        background-color: ${grenadier};
         flex: 1;
         width: 200px;
         align-items: center;

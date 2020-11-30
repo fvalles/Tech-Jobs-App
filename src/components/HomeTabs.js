@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import CompaniesScreen from './CompaniesScreen';
 import FavJobsScreen from './FavJobsScreen';
+import { primaryColor, tertiaryColor, white } from '../constants/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -10,17 +11,17 @@ export default function HomeTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Companies"
-      sceneContainerStyle={{ backgroundColor: '#fff' }}
+      sceneContainerStyle={{ backgroundColor: white }}
       screenOptions={{
-        backgroundColor: '#fff',
+        backgroundColor: white,
       }}
       tabBarOptions={{
         style: {
-          backgroundColor: '#212121',
+          backgroundColor: primaryColor,
           height: 52,
         },
-        inactiveTintColor: '#fff',
-        activeTintColor: '#32e0c4',
+        inactiveTintColor: white,
+        activeTintColor: tertiaryColor,
         labelStyle: { fontSize: 12 },
       }}
     >

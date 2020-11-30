@@ -1,8 +1,10 @@
 import React from 'react';
-import { Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Animation from './Animation';
+import ErrorScreen from './ErrorScreen';
+import { COMPANIES_JOBS } from '../queries/companiesQueries';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
 import { StyledImage } from './StyledImage';
@@ -10,35 +12,14 @@ import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import locationIcon from '../assets/location-icon.png';
 import clockIcon from '../assets/clock-icon.png';
 
-const COMPANIES_JOBS = gql`
-  query CompaniesJobs {
-    companies {
-      name
-      jobs {
-        cities {
-          name
-        }
-        commitment {
-          title
-        }
-        description
-        id
-        remotes {
-          name
-        }
-        title
-      }
-    }
-  }
-`;
-
 export default function CompanyJobsScreen({ route, navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_JOBS);
   const { companyName } = route.params;
   let companyJobsData = null;
 
   if (loading) return <Animation animationType="lookingForJobs" />;
-  if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
+  if (error)
+    return <ErrorScreen>Error :(. Check your internet connection and reload the App!</ErrorScreen>;
 
   if (data) {
     const companyInfo = data.companies.filter((company) => {

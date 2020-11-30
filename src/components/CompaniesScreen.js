@@ -1,29 +1,21 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import CompanyLogo from './CompanyLogo';
 import Animation from './Animation';
+import ErrorScreen from './ErrorScreen';
+import { COMPANIES_DATA } from '../queries/companiesQueries';
 import { StyledText } from './StyledText';
 import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 import { StyledView } from './StyledView';
-
-const COMPANIES_DATA = gql`
-  query CompaniesData {
-    companies {
-      id
-      name
-      logoUrl
-      websiteUrl
-    }
-  }
-`;
 
 export default function CompaniesScreen({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);
 
   if (loading) return <Animation animationType="loader" />;
-  if (error) return <Text>Error :(. Check your internet connection and reload the App!</Text>;
+  if (error)
+    return <ErrorScreen>Error :(. Check your internet connection and reload the App!</ErrorScreen>;
 
   const renderItem = ({ item }) => {
     return (
