@@ -2,13 +2,13 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import Animation from './Animation';
+import Animation from '../components/Animation';
 import ErrorScreen from './ErrorScreen';
 import { COMPANIES_JOBS } from '../queries/companiesQueries';
-import { StyledText } from './StyledText';
-import { StyledView } from './StyledView';
-import { StyledImage } from './StyledImage';
-import { StyledTouchableOpacity } from './StyledTouchableOpacity';
+import { StyledText } from '../components/StyledText';
+import { StyledView } from '../components/StyledView';
+import { StyledImage } from '../components/StyledImage';
+import { StyledTouchableOpacity } from '../components/StyledTouchableOpacity';
 import locationIcon from '../assets/location-icon.png';
 import clockIcon from '../assets/clock-icon.png';
 

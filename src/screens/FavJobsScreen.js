@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { useFocusEffect } from '@react-navigation/native';
 import { FlatList } from 'react-native';
-import RightSwipeableActions from './RightSwipeableActions';
-import { StyledText } from './StyledText';
-import { StyledView } from './StyledView';
+import RightSwipeableActions from '../components/RightSwipeableActions';
+import { StyledText } from '../components/StyledText';
+import { StyledView } from '../components/StyledView';
 import { getAllData, removeData } from '../utils/asyncStorageHelper';
-import { StyledTouchableOpacity } from './StyledTouchableOpacity';
+import { StyledTouchableOpacity } from '../components/StyledTouchableOpacity';
 
 export default function FavJobsScreen({ navigation }) {
   const [storedData, setStoredData] = useState([]);

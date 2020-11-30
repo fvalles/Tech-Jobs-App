@@ -2,13 +2,13 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import CompanyLogo from './CompanyLogo';
-import Animation from './Animation';
+import CompanyLogo from '../components/CompanyLogo';
+import Animation from '../components/Animation';
 import ErrorScreen from './ErrorScreen';
 import { COMPANIES_DATA } from '../queries/companiesQueries';
-import { StyledText } from './StyledText';
-import { StyledTouchableOpacity } from './StyledTouchableOpacity';
-import { StyledView } from './StyledView';
+import { StyledText } from '../components/StyledText';
+import { StyledTouchableOpacity } from '../components/StyledTouchableOpacity';
+import { StyledView } from '../components/StyledView';
 
 export default function CompaniesScreen({ navigation }) {
   const { loading, error, data } = useQuery(COMPANIES_DATA);

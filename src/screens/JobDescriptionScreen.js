@@ -4,9 +4,9 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import Markdown from 'react-native-markdown-display';
-import { StyledText } from './StyledText';
-import { StyledTouchableOpacity } from './StyledTouchableOpacity';
-import { StyledView } from './StyledView';
+import { StyledText } from '../components/StyledText';
+import { StyledTouchableOpacity } from '../components/StyledTouchableOpacity';
+import { StyledView } from '../components/StyledView';
 import { storeData } from '../utils/asyncStorageHelper';
 
 export default function JobDescriptionScreen({ route }) {

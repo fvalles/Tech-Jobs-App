@@ -3,8 +3,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeTabs from './src/components/HomeTabs';
-import CompanyJobsScreen from './src/components/CompanyJobsScreen';
-import JobDescriptionScreen from './src/components/JobDescriptionScreen';
+import CompanyJobsScreen from './src/screens/CompanyJobsScreen';
+import JobDescriptionScreen from './src/screens/JobDescriptionScreen';
 import { StyledSafeAreaView } from './src/components/StyledSafeAreaView';
 import { primaryColor, white } from './src/constants/colors';
 

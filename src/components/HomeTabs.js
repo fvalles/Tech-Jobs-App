@@ -1,8 +1,8 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, AntDesign } from '@expo/vector-icons';
-import CompaniesScreen from './CompaniesScreen';
-import FavJobsScreen from './FavJobsScreen';
+import CompaniesScreen from '../screens/CompaniesScreen';
+import FavJobsScreen from '../screens/FavJobsScreen';
 import { primaryColor, tertiaryColor, white } from '../constants/colors';
 
 const Tab = createBottomTabNavigator();
