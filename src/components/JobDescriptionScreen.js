@@ -20,7 +20,7 @@ export default function JobDescriptionScreen({ route }) {
         <StyledTouchableOpacity
           touchableType="descriptionBtn"
           onPress={() => {
-            storeData({ id: jobId, jobTitle, companyName });
+            storeData({ id: jobId, companyName, jobDesc, jobTitle });
             alert('Job Saved to Favorites!');
           }}
         >

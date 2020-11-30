@@ -1,12 +1,14 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { useFocusEffect } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 import { StyledText } from './StyledText';
 import { StyledView } from './StyledView';
 import { getAllData } from './AsyncStorageHelper';
+import { StyledTouchableOpacity } from './StyledTouchableOpacity';
 
-export default function FavJobsScreen() {
+export default function FavJobsScreen({ navigation }) {
   const [storedData, setStoredData] = useState([]);
 
   useFocusEffect(
@@ -23,21 +25,32 @@ export default function FavJobsScreen() {
 
   const renderItem = ({ item }) => {
     const jobData = JSON.parse(item[1]);
+    const jobId = item[0];
+    const { companyName, jobTitle, jobDesc } = jobData;
     return (
-      <>
+      <StyledTouchableOpacity
+        onPress={() => {
+          navigation.navigate('JobDescription', {
+            companyName,
+            jobDesc,
+            jobId,
+            jobTitle,
+          });
+        }}
+      >
         <StyledView viewType="favJob">
           <StyledView viewType="jobTitleRow">
-            <StyledText textType="companyJobSaved">{jobData.companyName}</StyledText>
+            <StyledText textType="companyJobSaved">{companyName}</StyledText>
           </StyledView>
           <StyledView viewType="locationsRow">
-            <StyledText>{jobData.jobTitle}</StyledText>
+            <StyledText>{jobTitle}</StyledText>
           </StyledView>
         </StyledView>
-      </>
+      </StyledTouchableOpacity>
     );
   };
 
-  return storedData.length > 0 ? (
+  return storedData?.length > 0 ? (
     <>
       <StyledView viewType="homeScreenTitle">
         <StyledText textType="mainTitle">Saved Jobs</StyledText>
@@ -50,3 +63,9 @@ export default function FavJobsScreen() {
     </StyledView>
   );
 }
+
+FavJobsScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
