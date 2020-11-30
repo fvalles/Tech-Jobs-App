@@ -34,7 +34,7 @@ export default function Animation({ animationType }) {
   return (
     <AnimatedLoader
       visible={visible}
-      overlayColor="rgba(255,255,255,0.75)"
+      overlayColor="rgba(255,255,255,0)"
       source={animationSrc}
       animationStyle={styles.lottie}
       speed={1}

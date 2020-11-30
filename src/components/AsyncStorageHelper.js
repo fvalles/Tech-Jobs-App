@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable import/prefer-default-export */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const getAllKeys = async () => {

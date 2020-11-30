@@ -6,8 +6,10 @@ export const StyledText = styled.Text`
   font-size: 16px;
 
   ${({ textType }) => {
-    if (textType === 'bold') {
+    if (textType === 'companyJobSaved') {
       return css`
+        color: #212121;
+        font-size: 20px;
         font-weight: bold;
       `;
     }
