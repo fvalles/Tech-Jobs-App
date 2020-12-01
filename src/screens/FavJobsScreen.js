@@ -51,6 +51,7 @@ export default function FavJobsScreen({ navigation }) {
               jobDesc,
               jobId,
               jobTitle,
+              isFavJob: true,
             });
           }}
         >
