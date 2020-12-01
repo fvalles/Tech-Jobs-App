@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<JobDescriptionScreen /> renders correctly 1`] = `
+<RCTScrollView>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FFF",
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 5,
+          },
+        ]
+      }
+      viewType="jobDesc"
+    >
+      <View
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "flex-start",
+              "marginBottom": 10,
+              "marginTop": 10,
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            style={Object {}}
+          >
+            <Text
+              style={
+                Array [
+                  Object {},
+                  Object {},
+                ]
+              }
+            >
+              Mock Job Description
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#FFF",
+            "flexDirection": "row",
+            "height": 100,
+            "justifyContent": "center",
+          },
+        ]
+      }
+      viewType="flexSaveBtn"
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#32E0C4",
+            "borderRadius": 35,
+            "marginBottom": 5,
+            "marginTop": 5,
+            "opacity": 1,
+            "paddingBottom": 15,
+            "paddingLeft": 15,
+            "paddingRight": 15,
+            "paddingTop": 15,
+            "width": 140,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#212121",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "textAlign": "center",
+              },
+            ]
+          }
+          textType="descBtn"
+        >
+          Save Job
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
