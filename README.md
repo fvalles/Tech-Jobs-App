@@ -1,6 +1,6 @@
 # Tech-Jobs-App
 
-React Native app developed with Expo!
+Welcome to my second React Native app, developed with Expo!
 
 Tools used:
 - Styled Components
