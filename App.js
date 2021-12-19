@@ -37,7 +37,7 @@ export default function App() {
             <Stack.Screen
               name="Home"
               component={HomeTabs}
-              options={() => ({ title: 'Ank Challenge' })}
+              options={() => ({ title: 'Tech Jobs App' })}
             />
             <Stack.Screen
               name="CompanyJobs"
